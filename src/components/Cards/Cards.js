@@ -6,7 +6,9 @@ import backSide from './assets/cardBackSide.jpg';
 const Cards = ({name, id, img, values, type}) => {
 
     const [isActive, setActive] = useState(false);
-    const handleClick = () => setActive(true);
+    const handleClick = () => {
+        isActive ? setActive(false) : setActive(true);
+    };
 
     return (
         <div className={style.root} onClick={handleClick}>
