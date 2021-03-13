@@ -1,6 +1,6 @@
 import style from './style.module.css';
 
-const Layout = ({title, desc, urlBg, colorBg}) => {
+const Layout = ({title, urlBg, colorBg, children}) => {
     const urlBackground ={
         backgroundImage: `url(${urlBg})`,
         backgroundPosition: 'center center',
@@ -9,7 +9,7 @@ const Layout = ({title, desc, urlBg, colorBg}) => {
         backgroundColor: colorBg
     };
     return (
-        <section className={ style.root } style={urlBg ? urlBackground : colorBackground}>
+        <section className={ style.root } style={{...urlBackground, ...colorBackground}}>
             <div className={ style.wrapper }>
                 <article>
                     <div className={ style.title }>
@@ -17,7 +17,7 @@ const Layout = ({title, desc, urlBg, colorBg}) => {
                         <span className={ style.separator }></span>
                     </div>
                     <div className={ `${style.desc} ${style.full}` } >
-                        { desc ? <p>{ desc }</p> : null }
+                        { children ? <p>{ children }</p> : null }
                     </div>
                 </article>
             </div>
